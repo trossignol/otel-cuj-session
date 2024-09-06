@@ -1,0 +1,29 @@
+version: '3'
+services:
+  label-service:
+    image: label-service
+  backend:
+    image: backend
+    ports:
+      - 8080:8080
+    environment:
+      LABEL_SERVICE_URL: http://label-service:8090
+    depends_on:
+      - label-service
+      - otel-collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:latest
+    command: [ "--config=/etc/otel-collector-config.yml" ]
+    volumes:
+      - ./otel/otel-collector-config.yml:/etc/otel-collector-config.yml
+    ports:
+      - "4317:4317"
+      - "4318:4318"
+    depends_on:
+      - jaeger
+  jaeger:
+    image: jaegertracing/all-in-one:latest
+    ports:
+      - "16686:16686" # Web UI
+      - "14250"
+      - "14268:14268" # HTTP port for spans
