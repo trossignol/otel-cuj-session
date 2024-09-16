@@ -47,6 +47,6 @@ it appears that
 - According to [the specification](https://www.w3.org/TR/trace-context/#tracestate-header), if the `traceparent`is not set ot if it's format is not correct, the `tracestate` header is not handling (by Quarkus for instance). It means, althought we can find the `tracestate` value in the request header, it's not set in the `Span` API.
 
 ### Sources
-[Trace context specification](https://www.w3.org/TR/trace-context/)
-[Trace Context HTTP Request Headers Format](https://github.com/w3c/trace-context/blob/main/spec/20-http_request_header_format.md)
-[OTEL Baggage](https://opentelemetry.io/docs/concepts/signals/baggage/)
+- [Trace context specification](https://www.w3.org/TR/trace-context/)
+- [Trace Context HTTP Request Headers Format](https://github.com/w3c/trace-context/blob/main/spec/20-http_request_header_format.md)
+- [OTEL Baggage](https://opentelemetry.io/docs/concepts/signals/baggage/)
