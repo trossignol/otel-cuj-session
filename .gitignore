@@ -2,6 +2,7 @@
 *.log
 .idea
 .DS_Store
+.vscode/
 
 *.jar
 *.war
